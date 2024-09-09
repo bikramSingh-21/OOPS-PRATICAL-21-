@@ -28,7 +28,6 @@ public:
     {
         unit = un;
     }
-
     void setBill(float b)
     {
         bill = b;

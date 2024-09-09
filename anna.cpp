@@ -8,86 +8,48 @@
 #include <iostream>
 using namespace std;
 
-class scores
-{
-    int score1;
-    int score2;
-    int score3;
-    int score4;
-    int score5;
-    
+class Student{
+int scores[5];
 
 public:
 
-    void enter_marks(int s1 , int s2 , int s3 ,int s4,int s5){
-      score1 = s1;
-      score2 = s2;
-      score3 = s3;
-      score4 = s4;
-      score4 = s5;
-    }
-     
-  
+//Member Function to Take Input
+void input(){
+   for(int i=0;i<5;i++){
+      cin>>scores[i];
+   }
+}
 
-    void checkout()
-    {
-      
-        cout <<score1 << endl;
-        cout <<score2 << endl;
-        cout <<score3 << endl;
-        cout <<score4 << endl;
-        cout <<score5 << endl;
-    }
+// Member function to Calculate the total Score
+int calculateTotalScore(){
+   int sum;
+   for(int i=0;i<5;i++){
+      sum +=scores[i];
+   }
+}
 
-   
 };
 
-int main()
-{
-    int n,anasum;
-    cout<<"Enter the number of student  : "<<endl;
-    cin>>n;
-    scores op[n];
-    int sum[n-1];
-   int score1 , score2 ,score3 ,score4 ,score5;
-    for(int i=0;i<n;i++){
-       if(i==0){
-        cout<<"Enter the marks of ana:";
-       }
-       else{
-        cout<<"Enter the marks of "<<(i+1)<<" student : ";
-       }
-       cin>>score1>>score2>>score3>>score4>>score5;
-      
-       if(i==0){
-       op[i].enter_marks(score1,score2,score3,score4,score5);
-       anasum = score1+score2+score3+score4+score5;
-    //    i++;
-       }
+int main(){
+Student d1[5];    
 
-       else{
-        op[i].enter_marks(score1,score2,score3,score4,score5);
-          sum[i] = score1+score2+score3+score4+score5;
-       }
-       cout<<endl;
-       
-    }
- 
-   int c=0;
-   for(int i=1;i<n;i++){
-     if(anasum < sum[i]){
-      c++;
-     }
+for(int i=0;i<5;i++){
+   d1[i].input();
+}
 
-   }
-   if(c==0){
-cout<<"There is no student who score higher marks then anna";
+// Store 1st student marks as anna Marks.
 
-   }
-   else{
+int annaScore = d1[0].calculateTotalScore();
 
-   
-   cout<<"There are "<<c<<" student who score greater than anna" ;
-   }
-   
+// Store marks for Rest of students.
+int c=0;
+for(int i=1;i<5;i++){
+   int StudentScores = d1[i].calculateTotalScore();
+   if(StudentScores > annaScore) c++;
+}
+
+cout<<"Number of Students who scored higher than Anna : " << c <<endl;
+
+
+
 }
