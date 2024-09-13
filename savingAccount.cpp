@@ -34,9 +34,12 @@ int main(){
     cin>>intrestRate;
     SavingsAccount::modifyInterestRate(intrestRate);
 
-    SavingsAccount saver1(2000) , saver2(3000);
+    SavingsAccount saver1(2000.00) , saver2(3000.00);
+
+    cout<<"Saver 1 :";
     saver1.calculateMonthlyInterest();
     cout<<endl;
+    cout<<"Saver 2 : ";
     saver2.calculateMonthlyInterest();
   
 
