@@ -38,6 +38,8 @@ bool operator == (complex b){
     return (real  == b.real && imaginary == b.imaginary);
 }
 
+// Show Function 
+
 void show() {
         cout << real << " + " << imaginary << "i" << endl;
     }
