@@ -6,75 +6,48 @@ using namespace std;
 class Base {
 private:
     int privateVar;
-    void privateFunc() {
-        cout << "Private function of Base class" << endl;
+    int var1;
+    public:
+    void setVar1(int var1){
+        this->var1 = var1;
     }
 
 protected:
     int protectedVar;
-    void protectedFunc() {
-        cout << "Protected function of Base class" << endl;
+    public:
+    int var2;
+    void setVar2(int var2){
+        this->var2 = var2;
     }
 
 public:
+
     int publicVar;
-    void publicFunc() {
-        cout << "Public function of Base class" << endl;
+    int var3;
+    void setVar3(int var3){
+        this->var3 = var3;
     }
 };
 
 // Public inheritance
 class DerivedPublic : public Base {
 public:
-    void display() {
-        // privateVar and privateFunc() are not accessible here
-        // protectedVar and protectedFunc() remain protected
-        cout << "Accessing in DerivedPublic: " << endl;
-        protectedFunc();  // Allowed (protected)
-        publicFunc();     // Allowed (public)
-    }
+  
 };
 
 // Protected inheritance
 class DerivedProtected : protected Base {
 public:
-    void display() {
-        // privateVar and privateFunc() are not accessible here
-        // protectedVar and protectedFunc() remain protected
-        cout << "Accessing in DerivedProtected: " << endl;
-        protectedFunc();  // Allowed (protected)
-        publicFunc();     // Now protected in DerivedProtected
-    }
+    void display() {}
+  
 };
 
 // Private inheritance
 class DerivedPrivate : private Base {
 public:
-    void display() {
-        // privateVar and privateFunc() are not accessible here
-        // protectedVar and protectedFunc() become private
-        cout << "Accessing in DerivedPrivate: " << endl;
-        protectedFunc();  // Allowed (private now)
-        publicFunc();     // Now private in DerivedPrivate
-    }
+   
 };
 
 int main() {
-    DerivedPublic objPublic;
-    DerivedProtected objProtected;
-    DerivedPrivate objPrivate;
-
-    cout << "In DerivedPublic: " << endl;
-    objPublic.display();
-    objPublic.publicFunc();  // Can access public functions
-
-    cout << "\nIn DerivedProtected: " << endl;
-    objProtected.display();
-    // objProtected.publicFunc();  // Not accessible (now protected)
-
-    cout << "\nIn DerivedPrivate: " << endl;
-    objPrivate.display();
-    // objPrivate.publicFunc();  // Not accessible (now private)
-
-    return 0;
+    
 }

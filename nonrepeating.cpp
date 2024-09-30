@@ -20,7 +20,7 @@ int main(){
 
  for(int i=0;i<str.size();i++){
     if(str[i]!=-1){
-        cout<<str[i];
+        cout<<str[i]<<" ";
     }
  }
 
